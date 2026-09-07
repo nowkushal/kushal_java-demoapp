@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-demoapp
+  labels:
+    app: java-demoapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-demoapp
+  template:
+    metadata:
+      labels:
+        app: java-demoapp
+    spec:
+      containers:
+      - name: java-demoapp
+        image: bencuk/java-demoapp:latest
+        ports:
+        - containerPort: 8080
